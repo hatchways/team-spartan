@@ -7,16 +7,18 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import { AuthProvider } from './context/useAuthContext';
 import { SocketProvider } from './context/useSocketContext';
 import { SnackBarProvider } from './context/useSnackbarContext';
+import Navbar from './components/Navbar';
 
 import './App.css';
 
-function App(): JSX.Element {
+const App = (): JSX.Element => {
   return (
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
         <SnackBarProvider>
           <AuthProvider>
             <SocketProvider>
+              <Navbar />
               <Switch>
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
@@ -33,6 +35,6 @@ function App(): JSX.Element {
       </BrowserRouter>
     </MuiThemeProvider>
   );
-}
+};
 
 export default App;
