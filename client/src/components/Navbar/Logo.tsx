@@ -1,5 +1,6 @@
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -15,8 +16,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Logo = (): JSX.Element => {
   const classes = useStyles();
+  const history = useHistory();
+
   return (
-    <Grid item>
+    <Grid item onClick={() => history.push('/dashboard')}>
       <Typography className={classes.text}>TATTOO ART</Typography>
     </Grid>
   );
