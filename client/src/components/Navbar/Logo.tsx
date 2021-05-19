@@ -1,18 +1,14 @@
-import { Grid, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useHistory } from 'react-router';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   text: {
     letterSpacing: 8,
     color: 'white',
     fontWeight: 'bolder',
     fontSize: 20,
-    [theme.breakpoints.down('md')]: {
-      fontSize: 18,
-    },
   },
-}));
+});
 
 const Logo = (): JSX.Element => {
   const classes = useStyles();

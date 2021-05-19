@@ -1,6 +1,6 @@
-import { Grid, makeStyles, Typography, Avatar } from '@material-ui/core';
+import { Grid, makeStyles, Avatar, Typography } from '@material-ui/core';
 import { AiOutlineCaretDown } from 'react-icons/ai';
-import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -11,13 +11,13 @@ const useStyles = makeStyles({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  text: {
+  link: {
     color: 'white',
-    fontWeight: 'bolder',
     fontSize: 16,
+    cursor: 'pointer',
+    textDecoration: 'none',
   },
   account: {
-    width: '100%',
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
@@ -25,27 +25,26 @@ const useStyles = makeStyles({
 
 export const Desktop = (): JSX.Element => {
   const classes = useStyles();
-  const history = useHistory();
 
   return (
     <Grid item className={classes.root}>
-      <Grid container className={classes.links} spacing={0}>
-        <Grid item onClick={() => history.push('/discover')}>
-          <Typography className={classes.text}>Discover</Typography>
-        </Grid>
-        <Grid item onClick={() => history.push('/messages')}>
-          <Typography className={classes.text}>Messages</Typography>
-        </Grid>
-        <Grid item onClick={() => history.push('/notifications')}>
-          <Typography className={classes.text}>Notifications</Typography>
-        </Grid>
+      <Grid container className={classes.links}>
+        <Link to="/discover" className={classes.link}>
+          Discover
+        </Link>
+        <Link to="/messages" className={classes.link}>
+          Messages
+        </Link>
+        <Link to="/notifications" className={classes.link}>
+          Notifications
+        </Link>
         <Grid item xs={3}>
-          <Grid container className={classes.account}>
+          <Grid container className={`${classes.account} ${classes.link}`}>
             <Grid item>
               <Avatar alt="Default User" />
             </Grid>
             <Grid item>
-              <Typography className={classes.text}>Account</Typography>
+              <Typography className={classes.link}>Account</Typography>
             </Grid>
             <AiOutlineCaretDown color="white" fontSize={10} />
           </Grid>

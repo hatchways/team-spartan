@@ -10,11 +10,9 @@ import {
   Collapse,
   Avatar,
 } from '@material-ui/core';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
+import { ExpandLess, ExpandMore, StarBorder } from '@material-ui/icons';
 import { IoNotificationsSharp } from 'react-icons/io5';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -39,17 +37,20 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: 'right',
       justifySelf: 'center',
     },
+    links: {
+      textDecoration: 'none',
+      color: 'black',
+    },
   }),
 );
 
 const NestedList = (): JSX.Element => {
   const classes = useStyles();
-  const history = useHistory();
   const [open, setOpen] = React.useState<boolean>(false);
 
   return (
     <List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
-      <ListItem button onClick={() => setOpen(!open)}>
+      <ListItem button onClick={() => setOpen((prev) => !prev)}>
         <ListItemIcon className={classes.icons}>
           <Avatar alt="Default User" />
         </ListItemIcon>
@@ -67,22 +68,28 @@ const NestedList = (): JSX.Element => {
           </ListItem>
         </List>
       </Collapse>
-      <ListItem button onClick={() => history.push('/notifications')}>
-        <ListItemIcon className={classes.icons}>
-          <IoNotificationsSharp />
-        </ListItemIcon>
-        <ListItemText primary="Notifications" className={classes.text} />
-        <ExpandLess className={classes.none} />
-      </ListItem>
-      <ListItem button onClick={() => history.push('/messages')}>
-        <ListItemText primary="Messages" className={classes.text} />
-        <ExpandLess className={classes.none} />
-      </ListItem>
-      <ListItem button onClick={() => history.push('/discover')}>
-        <ListItemIcon></ListItemIcon>
-        <ListItemText primary="Discover" className={classes.text} />
-        <ExpandLess className={classes.none} />
-      </ListItem>
+      <Link to="/notifications" className={classes.links}>
+        <ListItem button>
+          <ListItemIcon className={classes.icons}>
+            <IoNotificationsSharp />
+          </ListItemIcon>
+          <ListItemText primary="Notifications" className={classes.text} />
+          <ExpandLess className={classes.none} />
+        </ListItem>
+      </Link>
+      <Link to="/messages" className={classes.links}>
+        <ListItem button>
+          <ListItemText primary="Messages" className={classes.text} />
+          <ExpandLess className={classes.none} />
+        </ListItem>
+      </Link>
+      <Link to="/discover" className={classes.links}>
+        <ListItem button>
+          <ListItemIcon></ListItemIcon>
+          <ListItemText primary="Discover" className={classes.text} />
+          <ExpandLess className={classes.none} />
+        </ListItem>
+      </Link>
     </List>
   );
 };

@@ -2,13 +2,11 @@ import { Grid, makeStyles } from '@material-ui/core';
 import Logo from './Logo';
 import Menu from './Menu';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     width: '100%',
     background: 'black',
-    [theme.breakpoints.up('xs')]: {
-      height: '8vh',
-    },
+    height: '105px',
   },
   main: {
     alignItems: 'center',
@@ -16,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     margin: '0 auto',
   },
-}));
+});
 
 const index = (): JSX.Element => {
   const classes = useStyles();
