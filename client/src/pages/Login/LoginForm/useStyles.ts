@@ -6,16 +6,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
   },
   label: {
-    fontSize: 16,
     color: 'rgb(0,0,0,0.7)',
     paddingLeft: '1px',
-    fontFamily: 'Helvetica',
+    font: '16px Helvetica',
   },
   inputs: {
     marginTop: '.3rem',
     height: '2.5rem',
-    padding: '5px',
-    paddingLeft: '15px',
+    padding: '5px 5px 5px 15px',
     border: '1px solid grey',
     borderColor: 'lightgrey',
     '&::placeholder': {
@@ -23,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   forgot: {
-    fontSize: 11,
+    fontSize: '11px',
+    fontWeight: 700,
     color: 'black',
     textDecoration: 'underline',
-    fontWeight: 700,
     cursor: 'pointer',
     '&:hover': {
       opacity: '0.6',
@@ -34,15 +32,13 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 2, 2),
-    padding: 10,
-    width: 160,
-    height: 46,
-    borderRadius: '1.5px',
-    marginTop: 49,
-    fontSize: 13,
+    padding: '10px',
+    width: '160px',
+    height: '46px',
+    borderRadius: '1px',
+    marginTop: '49px',
     backgroundColor: 'black',
-    fontWeight: 'lighter',
-    fontFamily: 'Arial',
+    font: 'lighter 12px Arial',
   },
 }));
 

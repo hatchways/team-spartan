@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
     marginTop: '5%',
   },
   formBox: {
-    height: '30rem',
+    height: '485px',
   },
   root: {
     '& .MuiInput-underline:before': {
@@ -20,17 +20,14 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'column',
   },
   titleWrapper: {
-    padding: 80,
-    paddingTop: 60,
+    padding: '60px 80px 80px 80px',
     height: '600px',
   },
   welcome: {
-    fontSize: 26,
-    paddingBottom: 20,
+    paddingBottom: '20px',
     color: '#000000',
     justifySelf: 'center',
-    fontWeight: 700,
-    fontFamily: "'Arial'",
+    font: 'bold 26px Arial',
   },
 }));
 
