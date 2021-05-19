@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/SignUp';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -12,10 +12,13 @@ const Routes = (): JSX.Element => (
       <Route exact path="/signup" component={Signup} />
       <ProtectedRoute exact path="/dashboard" component={Dashboard} />
       <Route exact path="/unauthorized" component={Unauthorized} />
-      {/* Need to re-access the way this redirec occurs as it happens with useAuth's useEffect (check useAuth.tsx) */}
-      {/* <Route path="*">
+      {/* 
+        Should think about a middle component here instead of directing to login then dashboard
+        I.e., a landing page for wrong urls
+       */}
+      <Route path="*">
         <Redirect to="/login" />
-      </Route> */}
+      </Route>
     </Switch>
   </>
 );
