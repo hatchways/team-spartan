@@ -1,15 +1,17 @@
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/SignUp';
 import Dashboard from './pages/Dashboard/Dashboard';
-import ProtectedRoute from './protectedRoute';
+import ProtectedRoute from './routes/ProtectedRoute';
 import Unauthorized from './unauthorized';
+import AuthRoute from './routes/AuthRoute';
 
 const Routes = (): JSX.Element => (
   <>
     <Switch>
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/signup" component={Signup} />
+      <AuthRoute exact path="/login" component={Login} />
+      <AuthRoute exact path="/signup" component={Signup} />
       <ProtectedRoute exact path="/dashboard" component={Dashboard} />
       <Route exact path="/unauthorized" component={Unauthorized} />
       {/* 
