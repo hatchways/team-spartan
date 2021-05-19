@@ -11,7 +11,7 @@ import AuthHeader from '../../components/AuthHeader/AuthHeader';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 
-export default function Register(): JSX.Element {
+export const Register = (): JSX.Element => {
   const classes = useStyles();
   const { updateLoginContext } = useAuth();
   const { updateSnackBarMessage } = useSnackBar();
@@ -58,4 +58,4 @@ export default function Register(): JSX.Element {
       </Grid>
     </Grid>
   );
-}
+};

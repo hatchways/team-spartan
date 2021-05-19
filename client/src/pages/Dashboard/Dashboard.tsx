@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 import ChatSideBanner from '../../components/ChatSideBanner/ChatSideBanner';
 import { useEffect } from 'react';
 
-export default function Dashboard(): JSX.Element {
+export const Dashboard = (): JSX.Element => {
   const classes = useStyles();
 
   const { loggedInUser } = useAuth();
@@ -35,4 +35,4 @@ export default function Dashboard(): JSX.Element {
       </Grid>
     </Grid>
   );
-}
+};

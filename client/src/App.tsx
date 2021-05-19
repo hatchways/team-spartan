@@ -1,18 +1,10 @@
-import { MuiThemeProvider } from '@material-ui/core';
-import { theme } from './themes/theme';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import Login from './pages/Login/Login';
-import Signup from './pages/SignUp/SignUp';
-import Dashboard from './pages/Dashboard/Dashboard';
-import { AuthProvider } from './context/useAuthContext';
-import { SocketProvider } from './context/useSocketContext';
-import { SnackBarProvider } from './context/useSnackbarContext';
-import Navbar from './components/Navbar';
-
 import './App.css';
-import Messages from './pages/Messages/Messages';
-import Notifications from './pages/Notifications/Notifications';
-import Discover from './pages/Discover/Discover';
+import { MuiThemeProvider } from '@material-ui/core';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider, SocketProvider, SnackBarProvider } from './context';
+import { theme } from './themes/theme';
+import Routes from './routes';
+import Navbar from './components/Navbar';
 
 const App = (): JSX.Element => {
   return (
@@ -22,19 +14,7 @@ const App = (): JSX.Element => {
           <AuthProvider>
             <SocketProvider>
               <Navbar />
-              <Switch>
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/signup" component={Signup} />
-                <Route exact path="/messages" component={Messages} />
-                <Route exact path="/notifications" component={Notifications} />
-                <Route exact path="/discover" component={Discover} />
-                <Route exact path="/dashboard">
-                  <Dashboard />
-                </Route>
-                <Route path="*">
-                  <Redirect to="/login" />
-                </Route>
-              </Switch>
+              <Routes />
             </SocketProvider>
           </AuthProvider>
         </SnackBarProvider>
