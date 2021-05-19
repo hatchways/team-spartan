@@ -40,20 +40,32 @@ export default function Register(): JSX.Element {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={12} sm={8} md={7} elevation={6} component={Paper} square>
+      <Grid item sm={12}>
         <Box className={classes.authWrapper}>
-          <AuthHeader linkTo="/login" asideText="Already have an account?" btnText="Login" />
-          <Box width="100%" maxWidth={450} p={3} alignSelf="center">
-            <Grid container>
-              <Grid item xs>
-                <Typography className={classes.welcome} component="h1" variant="h5">
-                  Create an account
-                </Typography>
-              </Grid>
+          <AuthHeader linkTo="/login" asideText="TATTOO ART" btnText="Sign In" />
+          <Grid container justify={'center'} className={classes.form}>
+            <Grid
+              item
+              xl={3}
+              lg={4}
+              md={5}
+              sm={6}
+              xs={7}
+              className={classes.formBox}
+              elevation={6}
+              component={Paper}
+              square
+            >
+              <Box className={classes.titleWrapper}>
+                <Grid container justify={'center'}>
+                  <Typography className={classes.welcome} component="h1" variant="h5">
+                    Sign Up
+                  </Typography>
+                </Grid>
+                <SignUpForm handleSubmit={handleSubmit} />
+              </Box>
             </Grid>
-            <SignUpForm handleSubmit={handleSubmit} />
-          </Box>
-          <Box p={1} alignSelf="center" />
+          </Grid>
         </Box>
       </Grid>
     </Grid>
