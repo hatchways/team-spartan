@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Grid, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   button: {
@@ -10,6 +11,7 @@ const useStyles = makeStyles({
     padding: '15px 40px',
     borderRadius: 0,
     letterSpacing: 1,
+    textDecoration: 'none',
   },
 });
 
@@ -20,16 +22,13 @@ export const index = (): JSX.Element => {
 
   return (
     <Grid item>
-      <Button
+      <Link
         className={classes.button}
-        onClick={() => {
-          const newLocation = location === '/login' ? '/signup' : '/login';
-          setLocation(newLocation);
-          history.push(newLocation);
-        }}
+        to={location === '/login' ? '/signup' : '/login'}
+        onClick={() => setLocation(location === '/login' ? '/signup' : '/login')}
       >
         {location === '/login' ? 'SIGN UP' : 'SIGN IN'}
-      </Button>
+      </Link>
     </Grid>
   );
 };

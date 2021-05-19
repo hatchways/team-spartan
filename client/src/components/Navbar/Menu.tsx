@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuth } from '../../context/useAuthContext';
 import { AuthenticatedDesktop, AuthenticatedMobile, Unauthenticated } from '../Navbar/Menus';
 
-const Menu = (): JSX.Element | null => {
+const Menu = (): JSX.Element => {
   const { loggedInUser } = useAuth();
   const [width, setWidth] = React.useState<number>(window.innerWidth);
   const [mobile, setMobile] = React.useState<boolean>(width < 1025);
@@ -18,11 +18,7 @@ const Menu = (): JSX.Element | null => {
 
   if (!loggedInUser) return <Unauthenticated />;
 
-  if (mobile) return <AuthenticatedMobile />;
-
-  if (!mobile) return <AuthenticatedDesktop />;
-
-  return null;
+  return mobile ? <AuthenticatedMobile /> : <AuthenticatedDesktop />;
 };
 
 export default Menu;

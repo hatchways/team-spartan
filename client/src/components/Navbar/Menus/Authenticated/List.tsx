@@ -39,20 +39,17 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: 'right',
       justifySelf: 'center',
     },
-    button: {
-      // justifyContent: 'space-between',
-    },
   }),
 );
 
 const NestedList = (): JSX.Element => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState<boolean>(false);
   const history = useHistory();
+  const [open, setOpen] = React.useState<boolean>(false);
 
   return (
     <List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
-      <ListItem button onClick={() => setOpen(!open)} className={classes.button}>
+      <ListItem button onClick={() => setOpen(!open)}>
         <ListItemIcon className={classes.icons}>
           <Avatar alt="Default User" />
         </ListItemIcon>
@@ -61,7 +58,7 @@ const NestedList = (): JSX.Element => {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button className={`${classes.nested} ${classes.button}`}>
+          <ListItem button className={classes.nested}>
             <ListItemIcon className={classes.icons}>
               <StarBorder />
             </ListItemIcon>
@@ -70,19 +67,18 @@ const NestedList = (): JSX.Element => {
           </ListItem>
         </List>
       </Collapse>
-      <ListItem button className={classes.button} onClick={() => history.push('/notifications')}>
+      <ListItem button onClick={() => history.push('/notifications')}>
         <ListItemIcon className={classes.icons}>
           <IoNotificationsSharp />
         </ListItemIcon>
         <ListItemText primary="Notifications" className={classes.text} />
         <ExpandLess className={classes.none} />
       </ListItem>
-      <ListItem button className={classes.button} onClick={() => history.push('/messages')}>
-        <ListItemIcon></ListItemIcon>
+      <ListItem button onClick={() => history.push('/messages')}>
         <ListItemText primary="Messages" className={classes.text} />
         <ExpandLess className={classes.none} />
       </ListItem>
-      <ListItem button className={classes.button} onClick={() => history.push('/discover')}>
+      <ListItem button onClick={() => history.push('/discover')}>
         <ListItemIcon></ListItemIcon>
         <ListItemText primary="Discover" className={classes.text} />
         <ExpandLess className={classes.none} />
