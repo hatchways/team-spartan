@@ -26,11 +26,7 @@ describe('Login tests', () => {
         <Login />
       </MemoryRouter>,
     );
-    const account = getByText("Don't have an account?");
+    const account = getByText('Forgot your password?');
     expect(account).toBeInTheDocument();
-    const create = getByText('Create account');
-    expect(create).toBeInTheDocument();
-    const title = getByText('Welcome back!');
-    expect(title).toBeInTheDocument();
   });
 });

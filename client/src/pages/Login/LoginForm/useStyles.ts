@@ -40,6 +40,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'black',
     font: 'lighter 12px Arial',
   },
+  demoSubmit: {
+    marginTop: '5px',
+    margin: theme.spacing(3, 2, 2),
+    padding: '10px',
+    width: '160px',
+    height: '46px',
+    borderRadius: '1px',
+    backgroundColor: 'black',
+    font: 'lighter 12px Arial',
+  },
 }));
 
 export default useStyles;

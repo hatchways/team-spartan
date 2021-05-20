@@ -16,6 +16,20 @@ export default function Login(): JSX.Element {
   const { updateLoginContext } = useAuth();
   const { updateSnackBarMessage } = useSnackBar();
 
+  const handleDemoSubmit = () => {
+    login('demo@demo.com', 'demo1234').then((data) => {
+      if (data.error) {
+        updateSnackBarMessage(data.error.message);
+      } else if (data.success) {
+        updateLoginContext(data.success);
+      } else {
+        // should not get here from backend but this catch is for an unknown issue
+        console.error({ data });
+        updateSnackBarMessage('An unexpected error occurred. Please try again');
+      }
+    });
+  };
+
   const handleSubmit = (
     { email, password }: { email: string; password: string },
     { setSubmitting }: FormikHelpers<{ email: string; password: string }>,
@@ -48,7 +62,7 @@ export default function Login(): JSX.Element {
                 <Grid container justify={'center'}>
                   <Typography className={classes.welcome}>Sign in</Typography>
                 </Grid>
-                <LoginForm handleSubmit={handleSubmit} />
+                <LoginForm handleSubmit={handleSubmit} handleDemoSubmit={handleDemoSubmit} />
               </Box>
             </Grid>
           </Grid>
