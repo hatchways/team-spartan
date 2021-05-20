@@ -1,8 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
+  form: {
+    marginTop: '5%',
+  },
+  formBox: {
+    height: '560px',
+  },
   root: {
-    minHeight: '100vh',
     '& .MuiInput-underline:before': {
       borderBottom: '1.2px solid rgba(0, 0, 0, 0.2)',
     },
@@ -11,16 +16,18 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
+    justifyItems: 'center',
     flexDirection: 'column',
-    minHeight: '100vh',
-    paddingTop: 23,
+  },
+  titleWrapper: {
+    padding: '60px 80px 50px 80px',
+    height: '600px',
   },
   welcome: {
-    fontSize: 26,
-    paddingBottom: 20,
+    paddingBottom: '20px',
     color: '#000000',
-    fontWeight: 700,
-    fontFamily: "'Open Sans'",
+    justifySelf: 'center',
+    font: 'bold 26px Arial',
   },
 }));
 

@@ -39,20 +39,19 @@ export default function Login(): JSX.Element {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={12} sm={8} md={7} elevation={6} component={Paper} square>
+      <Grid item sm={12}>
         <Box className={classes.authWrapper}>
-          <AuthHeader linkTo="/signup" asideText="Don't have an account?" btnText="Create account" />
-          <Box width="100%" maxWidth={450} p={3} alignSelf="center">
-            <Grid container>
-              <Grid item xs>
-                <Typography className={classes.welcome} component="h1" variant="h5">
-                  Welcome back!
-                </Typography>
-              </Grid>
+          <AuthHeader linkTo="/signup" asideText="TATTOO ART" btnText="Sign Up" />
+          <Grid container justify={'center'} className={classes.form}>
+            <Grid item xl={3} lg={4} md={5} sm={6} xs={7} className={classes.formBox} elevation={6} component={Paper}>
+              <Box className={classes.titleWrapper}>
+                <Grid container justify={'center'}>
+                  <Typography className={classes.welcome}>Sign in</Typography>
+                </Grid>
+                <LoginForm handleSubmit={handleSubmit} />
+              </Box>
             </Grid>
-            <LoginForm handleSubmit={handleSubmit} />
-          </Box>
-          <Box p={1} alignSelf="center" />
+          </Grid>
         </Box>
       </Grid>
     </Grid>
