@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
     marginTop: '5%',
   },
   formBox: {
-    height: '485px',
+    height: '555px',
   },
   root: {
     '& .MuiInput-underline:before': {

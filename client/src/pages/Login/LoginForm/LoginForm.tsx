@@ -8,6 +8,7 @@ import useStyles from './useStyles';
 import { CircularProgress } from '@material-ui/core';
 
 interface Props {
+  handleDemoSubmit: () => void;
   handleSubmit: (
     {
       email,
@@ -26,7 +27,7 @@ interface Props {
   ) => void;
 }
 
-export default function Login({ handleSubmit }: Props): JSX.Element {
+export default function Login({ handleSubmit, handleDemoSubmit }: Props): JSX.Element {
   const classes = useStyles();
 
   return (
@@ -89,6 +90,15 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
           <Box textAlign="center">
             <Button type="submit" size="large" variant="contained" color="primary" className={classes.submit}>
               {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'SIGN IN'}
+            </Button>
+            <Button
+              onClick={handleDemoSubmit}
+              size="large"
+              variant="contained"
+              color="primary"
+              className={classes.demoSubmit}
+            >
+              {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'DEMO SIGN IN'}
             </Button>
           </Box>
           <div style={{ height: 95 }} />

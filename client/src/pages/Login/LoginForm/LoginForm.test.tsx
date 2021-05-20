@@ -1,7 +1,7 @@
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import LoginForm from './LoginForm';
 
-const props = { handleSubmit: jest.fn() };
+const props = { handleSubmit: jest.fn(), handleDemoSubmit: jest.fn() };
 
 describe('LoginForm tests', () => {
   test('smoke test', () => {
@@ -15,11 +15,11 @@ describe('LoginForm tests', () => {
 
   test('can input values and submit form', async () => {
     const { getByLabelText, getByText } = render(<LoginForm {...props} />);
-    const email = getByLabelText('E-mail address');
+    const email = getByLabelText('E-mail');
     expect(email).toBeInTheDocument();
     const password = getByLabelText('Password');
     expect(password).toBeInTheDocument();
-    const login = getByText('Login');
+    const login = getByText('SIGN IN');
     expect(login).toBeInTheDocument();
 
     fireEvent.change(email, { target: { value: 'testUser@gmail.com' } });
