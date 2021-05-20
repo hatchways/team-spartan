@@ -1,23 +1,11 @@
 import React from 'react';
-import { makeStyles, Drawer, Button } from '@material-ui/core';
+import { Drawer, Button } from '@material-ui/core';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import List from './List';
-
-const useStyles = makeStyles((theme) => ({
-  list: {
-    minWidth: 350,
-    width: 'auto',
-  },
-  burger: {
-    fontSize: 26,
-    [theme.breakpoints.down('md')]: {
-      fontSize: 22,
-    },
-  },
-}));
+import { mobileStyles } from './stylesIndex';
 
 export const Mobile = (): JSX.Element => {
-  const classes = useStyles();
+  const classes = mobileStyles();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   return (

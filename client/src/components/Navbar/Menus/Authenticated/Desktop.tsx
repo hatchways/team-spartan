@@ -1,30 +1,10 @@
-import { Grid, makeStyles, Avatar, Typography } from '@material-ui/core';
+import { Grid, Avatar, Typography } from '@material-ui/core';
 import { AiOutlineCaretDown } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-
-const useStyles = makeStyles({
-  root: {
-    width: '60%',
-    maxWidth: '600px',
-  },
-  links: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  link: {
-    color: 'white',
-    fontSize: 16,
-    cursor: 'pointer',
-    textDecoration: 'none',
-  },
-  account: {
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-  },
-});
+import { desktopStyles } from './stylesIndex';
 
 export const Desktop = (): JSX.Element => {
-  const classes = useStyles();
+  const classes = desktopStyles();
 
   return (
     <Grid item className={classes.root}>

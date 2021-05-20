@@ -1,51 +1,12 @@
 import React from 'react';
-import {
-  makeStyles,
-  Theme,
-  createStyles,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Collapse,
-  Avatar,
-} from '@material-ui/core';
+import { List, ListItem, ListItemIcon, ListItemText, Collapse, Avatar } from '@material-ui/core';
 import { ExpandLess, ExpandMore, StarBorder } from '@material-ui/icons';
 import { IoNotificationsSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      minWidth: 150,
-      maxWidth: 360,
-      backgroundColor: theme.palette.background.paper,
-      paddingLeft: theme.spacing(0),
-    },
-    nested: {
-      paddingLeft: theme.spacing(4),
-    },
-    icons: {
-      width: 10,
-      justifyContent: 'flex-end',
-    },
-    none: {
-      color: theme.palette.background.paper,
-    },
-    text: {
-      minWidth: 90,
-      textAlign: 'right',
-      justifySelf: 'center',
-    },
-    links: {
-      textDecoration: 'none',
-      color: 'black',
-    },
-  }),
-);
+import { listStyles } from './stylesIndex';
 
 const NestedList = (): JSX.Element => {
-  const classes = useStyles();
+  const classes = listStyles();
   const [open, setOpen] = React.useState<boolean>(false);
 
   return (
